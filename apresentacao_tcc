@@ -1,0 +1,392 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{ragged2e}
+
+%=================================================
+% theme and color
+%=================================================
+
+\usetheme{Warsaw} %Themes http://www.hartwork.org/beamer-theme-matrix/
+\definecolor{colorA}{RGB}{50, 50, 100}
+\definecolor{colorB}{RGB}{140, 151, 154}
+%\definecolor{secinhead}{RGB}{249,196,95}
+%\definecolor{titlebg}{RGB}{51,51,51}
+\setbeamercolor{structure}{fg=colorA,bg=colorB}
+%\setbeamercolor{secsubsec}{fg=secinhead,bg=black}
+%\setbeamercolor{frametitle}{fg=secinhead,bg=titlebg}
+\setbeamercolor{caption name}{fg=black}
+
+%=================================================
+% packages and new commands
+%=================================================
+
+\usepackage[ruled, linesnumbered, vlined]{algorithm2e}
+\usepackage{epsfig, subfigure, amssymb, multirow, algorithmic, amsmath}
+\newcommand*{\superscript}[1]{\ensuremath{^{\rm #1}}}
+\newcommand*{\subscript}[1]{\ensuremath{_{\rm #1}}}
+
+%=================================================
+% thesis details (preamble)
+%=================================================
+
+\title[{\sc Risco Moral e o Sistema de Sa\'ude Suplementar} \hspace{0.8cm} \insertframenumber/\inserttotalframenumber]{{\sc Risco Moral e o Mercado de Sa\'ude Suplementar na Regi\~ao Nordeste do Brasil }}
+\author[Paulo S\'ilvio Mour\~ao Veras Filho --- {\sc 22/06/2018}]{{Paulo S\'ilvio Mour\~ao Veras Filho} \\{Orienta\c{c}\~ao: Prof\textsuperscript{a}. Edivane de Sousa Lima}}
+\date{22 de Junho de 2018}
+\institute{Universidade Federal do Piau\'i - UFPI \\ Departamento de Economia - DECON \\ Teresina, PI}
+
+%=================================================
+% start presentation
+%=================================================
+\begin{document}
+
+%========================
+% Slide 1 - Título
+%========================
+
+\begin{frame}
+  \begin{center}
+    \vspace{0.1cm}
+    \includegraphics[scale=0.18]{UFPILogo.png}
+  \end{center}
+  \titlepage
+\end{frame}
+
+%========================
+% Slide 2 - Tema
+%========================
+
+\begin{frame}
+\frametitle{Introdu\c{c}\~ao}
+\begin{block}{Tema}
+\justifying \textbf{A repercuss\~ao do fenômeno do risco moral no mercado de sa\'ude suplementar do Nordeste brasileiro.}
+\end{block}
+\end{frame}
+
+%========================
+%Slide 3 - Justificativa
+%========================
+
+\begin{frame}
+\frametitle{Introdu\c{c}\~ao}
+\begin{block}{Justificativa}
+\begin{enumerate}
+\item Setor da sa\'ude frente \`a crise econ\^omica (IESS, 2016);
+\linebreak
+\item Baixa cobertura de sa\'ude suplementar no Nordeste (ANS, 2018);
+\linebreak
+\item Escassez de dados regionais sobre sa\'ude suplementar; e
+\linebreak
+\item Pouca explora\c{c}\~ao da abordagem emp\'irica da informa\c{c}\~ao assim\'etrica (MAIA, 2004).
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%Slide 4 - Questão Norteadora
+%========================
+
+\begin{frame}
+\frametitle{Quest\~ao Norteadora}
+\begin{block} {Quest\~ao Norteadora}
+\justifying \textbf{Como o problema do risco moral repercute no setor da sa\'ude suplementar na regi\~ao Nordeste do Brasil?}
+\end{block}
+\end{frame}
+
+%========================
+%Slide 5 - Hipótese
+%========================
+
+\begin{frame}
+\frametitle{Hip\'otese}
+\begin{block} {Hip\'otese}
+\justifying
+
+A exist\^encia do problema de risco moral provoca efeitos negativos no setor de sa\'ude suplementar do Nordeste brasileiro por ocasionar a sobreutiliza\c{c}\~ao de servi\c{c}os m\'edicos por parte dos agentes assegurados. A ado\c{c}\~ao dessa hip\'otese toma por base os trabalhos de Arrow (1963), Finkelstein \textit{et al}.(2014), Stancioli (2002), Maia (2004) e Chaves (2009).
+\end{block}
+\end{frame}
+
+%========================
+%Slide 6 - Objetivos
+%========================
+
+\begin{frame}
+\frametitle{Objetivos}
+\begin{block} {Objetivo Geral}
+\textbf{Analisar o mercado de sa\'ude suplementar no Nordeste brasileiro sob a \'otica da economia da informa\c{c}\~ao.}
+\end{block}
+\begin{block} {Objetivos Espec\'ificos}
+\begin{enumerate}
+\item Revisar a literatura sobre informa\c{c}\~ao assim\'etrica aplicada \`a sa\'ude;
+\linebreak
+\item Descrever a estrutura do mercado de sa\'ude suplementar no Nordeste brasileiro; e
+\linebreak
+\item Estimar a presen\c{c}a de risco moral por meio de um modelo de regress\~ao para dados de contagem e uma análise contrafactual.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%Slide 7 - Referencial Teórico
+%========================
+
+\begin{frame}
+\frametitle{Referencial Te\'orico}
+\begin{block}{Referencial Te\'orico}
+\begin{enumerate}
+\item A teoria da informa\c{c}\~ao assim\'etrica (MAS-COLELL, WHINSTON e GREEN, 1995).
+\linebreak
+\item Aplica\c{c}\~oes na Sa\'ude (ARROW, 1963; ZWEIFEL e MANNING, 2000; SANTERRE e NEUN, 2010).
+\linebreak
+\item Trabalhos emp\'iricos para o Brasil (STANCIOLI, 2002; MAIA, 2004; CHAVES, 2009).
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%Referencial Teórico
+%========================
+
+\begin{frame}
+\frametitle{Referencial Te\'orico}
+\begin{block}{A natureza da demanda e o modelo de utilidade esperada}
+Seja $(1-p)$ a probabilidade de permanecer saud\'avel e $p$ a probabilidade subjetiva de adoecer. Tem-se:
+
+$$E(U) = (1-p)U_0(Y_0) + pU_1(Y_1)$$
+
+\vspace{0.5cm}
+
+\end{block}
+\end{frame}
+
+%========================
+%Referencial Teórico
+%========================
+
+\begin{frame}
+
+\begin{center}
+    \small \begin{flushleft}
+    \hspace{1.5cm} Figura 1 - Avers\~ao ao risco e demanda por seguro
+    \end{flushleft}
+    \includegraphics[scale=0.35]{grafico_risco.pdf}
+  \end{center}
+  \hspace{1.5cm} \tiny Fonte: adaptado de Santerre e Neun, 2010.
+\end{frame}
+
+%========================
+
+\begin{frame}
+\frametitle{Referencial Te\'orico}
+\begin{block}{Outros modelos formais que explicam a demanda por servi\c{c}os de sa\'ude}
+\begin{enumerate}
+\item Modelo da taxa de co-participa\c{c}\~ao (ZWEIFEL e MANNING, 2000)
+\linebreak
+\item Modelo de maximiza\c{c}\~ao de utilidade (MAIA, 2004)
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%Referencial Teórico
+%========================
+
+\begin{frame}
+\begin{center}
+{\small \begin{flushleft}
+\hspace{0.9cm} Quadro 1 - Revis\~ao da literatura nacional
+\end{flushleft}}
+    \includegraphics[scale=0.34]{literatura_nacional_1.pdf}\\
+  \end{center}
+  \hspace{0.9cm} \tiny Fonte: elabora\c{c}\~ao pr\'opia com base em Chaves, 2009.
+\end{frame}
+
+\begin{frame}
+\begin{center}
+{\small \begin{flushleft}
+\hspace{0.9cm} Quadro 1 - Revis\~ao da literatura nacional (cont.)
+\end{flushleft}}
+    \includegraphics[scale=0.34]{literatura_nacional_2.pdf}\\
+  \end{center}
+  \hspace{0.9cm} \tiny Fonte: elabora\c{c}\~ao pr\'opia com base em Chaves, 2009.
+\end{frame}
+
+%========================
+% Slide 8 - Metodologia
+%========================
+
+\begin{frame}
+\frametitle{Metodologia}
+\begin{block}{Metodologia}
+\begin{enumerate}
+\item Enfoque geográfico: estados do Nordeste brasileiro.
+\linebreak
+\item Natureza e fonte dos dados: microdados extra\'idos da Pesquisa Nacional de Sa\'ude (PNS) de 2013 e dados secundários da Ag\^encia Nacional de Sa\'ude Suplementar (ANS).
+\linebreak
+
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+
+\begin{frame}{Metodologia}
+\begin{center}
+{\small \begin{flushleft}
+\hspace{1cm} Quadro 2 - Principais variáveis do modelo
+\end{flushleft}}
+\includegraphics[scale=0.325]{Variaveis.pdf}
+\end{center}
+\hspace{1cm} \tiny Fonte: elabora\c{c}\~ao pr\'opia, 2018.
+\end{frame}
+
+%========================
+%Procedimento empírico
+%========================
+
+\begin{frame}
+\frametitle{Metodologia}
+\begin{block}{Premissas da modelagem}
+\begin{enumerate}
+\item An\'alise contrafactual considerando duas subamostras de acordo com o status de cobertura: uma de indiv\'iduos com plano de sa\'ude e outra com aqueles sem plano.
+\linebreak
+\item Indicador de utiliza\c{c}\~ao: n\'umero de consultas realizadas nos \'ultimos doze meses.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%Procedimento empírico
+%========================
+
+\begin{frame}
+\frametitle{Metodologia}
+\begin{block}{Premissas da modelagem}
+\begin{enumerate}
+\item Dados de contagem.
+\item Poisson vs. Binomial Negativo (FÁVERO, 2015).
+\item Estima\c{c}\~ao em duas etapas: Probit e Binomial Negativo (CAMERON, A. C. \textit{et al}, 1988).
+
+$$Prob(D_i = 1) = Prob(Z_i\alpha>\mu_i)$$
+
+$$E[y_i|D_i, \varepsilon_i] = exp(X_i\beta+\varepsilon_i)$$
+\linebreak
+Finalmente, tem-se que Risco Moral $= [E(y_s|X, D_s = 1) - E(y_s|X, D_s = 0)]$
+
+\end{enumerate}
+\end{block}
+\end{frame}
+
+%========================
+%========================
+
+\begin{frame}{Resultados da an\'alise descritiva}
+\begin{center}
+\includegraphics[scale=0.34]{resumo_descritiva.pdf}
+\end{center}
+\hspace{0.8cm} \tiny Fonte: elabora\c{c}\~ao pr\'opia, 2018.
+\end{frame}
+
+%========================
+
+\begin{frame}{Resultados do modelo de regress\~ao \textit{Probit}}
+\begin{center}
+\includegraphics[scale=0.38]{Probit.pdf}
+\end{center}
+\end{frame}
+
+%========================
+
+\begin{frame}{Resultados do modelo de regress\~ao Binomial Negativo}
+\begin{center}
+\includegraphics[scale=0.38]{binomial_negativo.pdf}
+\end{center}
+\end{frame}
+
+%========================
+
+\begin{frame}{Estimando o risco moral no mercado}
+\begin{block}{Existe risco moral?}
+
+$$E(y_s|X, D_s = 1) - E(y_s|X, D_s = 0) = 4,01 - 3,23 \Rightarrow \text{Risco Moral} = 0,78$$
+
+\vspace{0.5cm}
+
+\begin{table}[]
+\centering
+\label{my-label}
+\begin{tabular}{ccc}
+\hline
+\textbf{Indicador} & \textbf{Porcentagem} & \textbf{\'Indice} \\ \hline
+Consultas m\'edicas  & 24,25\%              & 0,78            \\ \hline
+\end{tabular}
+\end{table}
+
+\end{block}
+
+\end{frame}
+
+%========================
+
+\begin{frame}{Conclus\~oes}
+
+\begin{block}{Principal resultado}
+A hipótese inicial de que há presença de risco moral causando sobreutilização dos serviços de saúde no mercado de saúde suplementar do Nordeste brasileiro não foi rejeitada.
+\end{block}
+
+\end{frame}
+
+%========================
+% bibliography
+%========================
+
+\begin{frame}
+\frametitle{Refer\^encias}
+
+ARROW, K. Uncertainty and the welfare economics of medical care. \textbf{American Economic Review}, v.53, n.5, p. 941-973, Dez. 1963.
+\vspace{0.5cm}
+
+ANS - \textbf{Ag\^encia Nacional de Sa\'ude Suplementar}. Home page. Dispon\'ivel em: http://www.ans.gov.br. Acesso em: 15 mar. 2018.
+\vspace{0.5cm}
+
+CAMERON, A. C. et al. A microeconomic model of the demand for health care and health insurance in Australia. \textbf{Review of Economic Studies}, v.55, n.1, p.85-106, 1988.
+\vspace{0.5cm}
+
+FÁVERO, L. P.. \textbf{Análise de Dados: Modelos de regressão com EXCEL\textsuperscript{®}, STATA\textsuperscript{®} e SPSS\textsuperscript{®}}. 1. ed. Rio de Janeiro: Elsevier, 2015. 504 p.
+\vspace{0.5cm}
+
+FINKELSTEIN, A. et al. \textbf{Moral Hazard in Health Insurance}. New York: Columbia University Press, 2014. p. 160.
+\vspace{0.5cm}
+
+\end{frame}
+\begin{frame}
+\frametitle{Refer\^encias}
+
+IESS - Instituto de Estudos de Sa\'ude Suplementar. \textbf{Conjuntura – Sa\'ude Suplementar}. v. 33. P.1-7. Dez. 2016.
+\vspace{0.5cm}
+
+MAIA, A. C. \textbf{Seleção Adversa e Risco Moral no Sistema de Saúde Brasileiro}. 2004. 97f. Dissertação (Mestrado em Economia) - Centro de Desenvolvimento e Planejamento regional Faculdade de Ciências Econômicas – UFMG. Belo Horizonte, 2004.
+\vspace{0.5cm}
+
+MAS-COLELL, A.; WHINSTON, M. D.; GREEN, J. R. \textbf{Microeconomic Theory}. New York: Oxford University Press, 1995. p. 971
+\vspace{0.5cm}
+
+SANTERRE, R. E.; NEUN, S. P. \textbf{The Demand for Medical Insurance}: Traditional and Managed Care Coverage. In: SANTERRE, Rexford E.; NEUN, Stephen P. Health Economics. 5. ed. Mason: Cengage, 2010. cap. 6, p. 141-174.
+\vspace{0.5cm}
+
+\end{frame}
+
+%=================================================
+\begin{frame}{Referências}
+
+STANCIOLI, A. E. \textbf{Incentivos e risco moral nos planos de sa\'ude no Brasil}. 2002. 81f. Disserta\c{c}\~ao (Mestrado em Economia) - Faculdade de Economia, Administra\c{c}\~ao e Contabilidade, Universidade de São Paulo, 2002.
+\vspace{0.5cm}
+
+ZWEIFEL, P.; MANNING, W. Moral Hazard and Consumer Incentives in Health Care. In: CULYER, A. J.; NEWHOUSE, J. P. (Org.). \textbf{Handbook of Health Economics}. 1. ed. Amsterdam: Elsevier, v. 1, 2000. cap. 8, p. 409-459.
+
+\end{frame}
+%=================================================
+% end presentation
+%=================================================
+
+\end{document}
